@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hostwinds Multiform</title>
+</head>
+<body onload="initialize()">
+
+    <h1>Hostwinds Multiform</h1>
+    <h3>Please select the form needed</h3>
+
+    <form action="submitform.php" method="post" onsubmit="validate()">
+        <!-- Below are form-apathetic choices, such as selecting the type of form and the submitter's email address -->
+        <select class="initformobj" name="selector" id="selector" onchange="formMorph()">
+            <option value="none" selected>Please Select...</option>
+            <option value="techdelay">Tech Delay</option>
+            <option value="abuse">Abuse</option>
+        </select>
+
+        </br></br>
+        <label for="email" class="formobj">Hostwinds email address</label> </br>
+        <input type="email" class="formobj" name="email" id="email">
+        </br></br>
+
+        <!-- Below are form items to only appear when "abuse" is selected -->
+        <label for="evidence" class="abuseformobj">Evidence URLs</label><br class="abuseformobj">
+        <textarea name="evidence" id="evidence" class="abuseformobj" rows="5" cols="50"></textarea>
+        <br class="abuseformobj"><br class="abuseformobj">
+
+        <label for="svclink" class="abuseformobj">WHMCS link for client service</label><br class="abuseformobj">
+        <input type="text" class="abuseformobj" name="svclink" id="svclink">
+        <br class="abuseformobj"><br class="abuseformobj">
+
+        <label for="abusedetails" class="abuseformobj">Abuse Details</label><br class="abuseformobj">
+        <textarea name="abusedetails" id="abusedetails" class="abuseformobj" rows="5" cols="50"></textarea>
+        <br class="abuseformobj"><br class="abuseformobj">
+
+        <!-- Below are form items to only appear when "tech delays" is selected -->
+        <label for="ticketlink" class="techformobj">WHMCS link for ticket in question</label><br class="techformobj">
+        <input type="text" class="techformobj" name="ticketlink" id="ticketlink">
+        <br class="techformobj"><br class="techformobj">
+
+        <label for="delaydetails" class="techformobj">Tech Delay Details</label><br class="techformobj">
+        <textarea name="delaydetails" id="delaydetails" class="techformobj" rows="5" cols="50"></textarea>
+        <br class="techformobj"><br class="techformobj">
+
+        <input  class="formobj" type="submit" value="Submit">
+    </form>
+    <script src="scripts.js"></script>
+</body>
+</html>
